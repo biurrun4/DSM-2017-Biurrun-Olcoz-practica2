@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Practica 2 - Biurrun & Olcoz</title>
+
+  
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+  <link rel=stylesheet type="text/css" media="all" href="css/bootstrap.min.css">
+  <link rel=stylesheet type="text/css" media="all" href="css/bootstrap-theme.min.css">
+
+  <link rel="stylesheet" type="text/css" href="css/practica2.css">
+
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/npm.js"></script>
+
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+
+  <script>
+
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+
+    $(document).ready(function(){
+      
+        // Para desplegar la información de cada producto.
+
+        $("#producto1").click(function(){
+          $('.oculto').css("display", "block");
+          $('.ninguno').css("display", "none");
+          $('.producto1').css("display", "block");
+          $('.producto2').css("display", "none");
+          $('.producto3').css("display", "none");
+          $('#img1').attr("src", "img/osasuna2.jpg");
+          $('#img2').attr("src", "img/osasuna3.jpg");
+          $('#img3').attr("src", "img/osasuna4.jpg");
+          $('#img_principal').attr("src", "img/osasuna1.jpg");
+          $('#np').html("1");
+        });
+
+        $("#producto2").click(function(){
+          $('.oculto').css("display", "block");
+          $('.ninguno').css("display", "none");
+          $('.producto2').css("display", "block");
+          $('.producto1').css("display", "none");
+          $('.producto3').css("display", "none");
+          $('#img1').attr("src", "img/paseo2.jpg");
+          $('#img2').attr("src", "img/paseo3.jpg");
+          $('#img3').attr("src", "img/paseo4.jpg");
+          $('#img_principal').attr("src", "img/paseo1.jpg");
+          $('#np').html("2");
+        });
+
+        $("#producto3").click(function(){
+          $('.ninguno').css("display", "none");
+          $('.oculto').css("display", "block");
+          $('.producto3').css("display", "block");
+          $('.producto1').css("display", "none");
+          $('.producto2').css("display", "none");
+          $('#img1').attr("src", "img/osasunaverde2.jpg");
+          $('#img2').attr("src", "img/osasunaverde3.jpg");
+          $('#img3').attr("src", "img/osasunaverde4.jpg");
+          $('#img_principal').attr("src", "img/osasunaverde1.jpg");
+          $('#np').html("3");
+        });
+
+        // Para cambiar las fotos de sitio
+
+        $("#img1").click(function(){
+          var srcprincipal = $("#img_principal").attr('src');
+          var srcimg1 = $("#img1").attr('src');
+          var srcimg2 = $("#img2").attr('src');
+          var srcimg3 = $("#img3").attr('src');
+          $('#img1').attr("src", srcprincipal);
+          $('#img_principal').attr("src", srcimg1);
+        });
+
+        $("#img2").click(function(){
+          var srcprincipal = $("#img_principal").attr('src');
+          var srcimg1 = $("#img1").attr('src');
+          var srcimg2 = $("#img2").attr('src');
+          var srcimg3 = $("#img3").attr('src');
+          $('#img2').attr("src", srcprincipal);
+          $('#img_principal').attr("src", srcimg2);
+        });
+
+        $("#img3").click(function(){
+          var srcprincipal = $("#img_principal").attr('src');
+          var srcimg1 = $("#img1").attr('src');
+          var srcimg2 = $("#img2").attr('src');
+          var srcimg3 = $("#img3").attr('src');
+          $('#img3').attr("src", srcprincipal);
+          $('#img_principal').attr("src", srcimg3);
+        });
+
+        // Para actualizar el precio
+
+      $("input[type=number]").on("change paste keyup", actualizarPrecio);
+
+    });
+
+  function clearInputField(item){
+    switch(item){
+      case 1:
+        $("#cantidad1").val(0);
+        $('#p1').css("display", "none");
+      break;
+      case 2:
+        $("#cantidad2").val(0);
+        $('#p2').css("display", "none");
+      break;
+      case 3:
+        $("#cantidad3").val(0);
+        $('#p3').css("display", "none");
+      break;
+    }
+    actualizarPrecio();
+  }
+
+    function actualizarPrecio() {
+        var c1= Math.floor($("#cantidad1").val()*1);
+        var c2= Math.floor($("#cantidad2").val()*1);
+        var c3= Math.floor($("#cantidad3").val()*1);
+        var p1= $(".precio")[0].textContent;
+        var p2= $(".precio")[1].textContent;
+        var p3= $(".precio")[2].textContent;
+        var sub1 = c1*p1;
+        var sub2 = c2*p2;
+        var sub3 = c3*p3;
+
+        if(c1 >= 1){
+          $('#p1').css("display", "table-row");
+        } else{
+          $('#p1').css("display", "none");
+        }
+        
+        if(c2 >= 1){
+          $('#p2').css("display", "table-row");
+        } else{
+          $('#p2').css("display", "none");
+        }
+
+        if(c3 >= 1){
+          $('#p3').css("display", "table-row");
+        } else{
+          $('#p3').css("display", "none");
+        }
+
+        $("#c1").html(c1);
+        $("#c2").html(c2);
+        $("#c3").html(c3);
+
+        $("#subtotal1").html(sub1);
+        $("#subtotal2").html(sub2);
+        $("#subtotal3").html(sub3);
+        var precio= sub1 + sub2 + sub3;
+        $('#total1').html(precio);
+        $('#total2').html(precio);
+  }
+
+  </script>
+
+</head>
+<body>
+  <div class="container">
+    <div class="row text-center">
+      <h3>Práctica 2</h3>
+      <h5 style="color:white">Carlos Biurrun e Iñigo Olcoz</h5>
+    </div>
+    <div id="productos" class="col-md-12 well">
+      <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4">
+            <img src="img/osasuna1.jpg" class="img-responsive" id="producto1">
+            <h5 class="text-center">Producto 1</h5>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-4">
+            <img src="img/paseo1.jpg" class="img-responsive" id="producto2">
+            <h5 class="text-center">Producto 2</h5>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-4">
+            <img src="img/osasunaverde1.jpg" class="img-responsive" id="producto3">
+            <h5 class="text-center">Producto 3</h5>
+          </div>
+        </div>
+    </div>
+    <div id="tabs" class="col-md-12 well">
+      <ul>
+        <li><a href="#Imagenes">Imagenes</a></li>
+        <li><a href="#Descripcion">Descripción</a></li>
+        <li><a href="#Precio">Precio</a></li>
+      </ul>
+      <div class="row oculto">
+        <h4 class="text-center">Producto <span id="np">1</span>
+        </h4>
+      </div>
+      <div id="Imagenes">
+        <div id="ninguno">
+          <p class="ninguno">Seleccione un producto para observar las imágenes del mismo.</p>
+        </div>
+        <div class="oculto">
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+              <img class="img-responsive" src="" id="img_principal">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-2 col-sm-4 col-xs-4 well-sm">
+              <img class="img-responsive" src="" id="img1">
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4 well-sm">
+              <img class="img-responsive" src="" id="img2">
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4 well-sm">
+              <img class="img-responsive" src="" id="img3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="Descripcion">
+        <div id="ninguno">
+          <p class="ninguno">Seleccione un producto para observar la descripción del mismo.</p>
+        </div>
+        <div class="oculto">
+          <p class="producto1">Primera equipación. Luce el escudo del club y el logo de la marca en el pecho.
+          Emblema de la La Liga estampado en la manga.
+          Escudo de Navarra estampado en la parte trasera a la altura de la nuca.
+          Gracias a su tecnología CLIMACOOL, que expulsa el sudor de la piel, te mantendrás fresco y seco.
+          Tejido 100% Poliéster.</p>
+          <p class="producto2">Confeccionado en tejido transpirable Climalite® con ventilación estratégica.
+          En la parte izquierda del pecho lleva el escudo del equipo y en la derecha el logotipo de Adidas bordados.
+          Tejido Poliéster 100%.</p>
+          <p class="producto3"> Segunda equipación. Luce el escudo del club y el logo de la marca en el pecho.
+          Emblema de la La Liga estampado en la manga.
+          Escudo de Navarra estampado en la parte trasera a la altura de la nuca.
+          Gracias a su tecnología CLIMACOOL, que expulsa el sudor de la piel, te mantendrás fresco y seco.
+          Tejido 100% Poliéster.</p>
+        </div>
+      </div>
+
+      <div id="Precio">
+        <div id="ninguno">
+          <p class="ninguno">Seleccione un producto para añadir unidades.</p>
+        </div>
+        <div class="oculto">
+          <div class="row producto1 col-md-12">
+            <p><span> Cantidad: </span><input step="1" type="number" id="cantidad1" value="0" min="0"></p>
+            <p>Precio: <span>60</span>€</p>
+          </div>
+          <div class="row producto2 col-md-12">
+            <p><span> Cantidad: </span><input step="1" type="number" id="cantidad2" value="0" min="0"></p>
+            <p>Precio: <span>20</span>€</p>
+          </div>
+          <div class="row producto3 col-md-12">
+            <p><span> Cantidad: </span><input step="1" type="number" id="cantidad3" value="0" min="0"></p>
+            <p>Precio: <span>40</span>€</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div id="compra" class="col-md-12 well">
+      <table id="cart" class="table table-condensed">
+            <thead>
+            <tr>
+              <th style="width:67%">Producto</th>
+              <th style="width:10%" class="text-center">Precio</th>
+              <th style="width:8%" class="text-center">Cantidad</th>
+              <th style="width:10%" class="text-center">Subtotal</th>
+              <th style="width:5%"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr  id="p1">
+              <td>
+                <div class="row">
+                  <div class="col-sm-2 hidden-xs">
+                    <img src="img/osasuna1.jpg" alt="Producto1" class="img-responsive"/>
+                  </div>
+                  <div class="col-sm-10">
+                    <h4 class="nomargin hidden-xs hidden-sm">Producto 1</h4>
+                    <h5 class="nomargin hidden-md hidden-lg">Producto 1</h4>
+                  </div>
+                </div>
+              </td>
+              <td class="text-center"><span class="precio">60</span>€</td>
+              <td class="text-center">
+                <span id="c1">0</span>
+              </td>
+              <td class="text-center"><span id="subtotal1">0</span>€</td>
+              <td class="text-center"><span class="glyphicon glyphicon-remove" onclick="clearInputField(1)"></span></td>
+            </tr>
+
+            <tr id="p2">
+              <td>
+                <div class="row">
+                  <div class="col-sm-2 hidden-xs">
+                    <img src="img/paseo1.jpg" alt="Producto 2" class="img-responsive"/>
+                  </div>
+                  <div class="col-sm-10">
+                    <h4 class="nomargin hidden-xs hidden-sm">Producto 2</h4>
+                    <h5 class="nomargin hidden-md hidden-lg">Producto 2</h4>
+                  </div>
+                </div>
+              </td>
+              <td class="text-center"><span class="precio">20</span>€</td>
+              <td class="text-center">
+                <span id="c2">0</span>
+              </td>
+              <td class="text-center"><span id="subtotal2">0</span>€</td>
+              <td class="text-center"><span class="glyphicon glyphicon-remove" onclick="clearInputField(2)"></span></td>
+            </tr>
+
+            <tr id="p3">
+              <td>
+                <div class="row">
+                  <div class="col-sm-2 hidden-xs">
+                    <img src="img/osasunaverde1.jpg" alt="Producto 3" class="img-responsive"/>
+                  </div>
+                  <div class="col-sm-10">
+                    <h4 class="nomargin hidden-xs hidden-sm">Producto 3</h4>
+                    <h5 class="nomargin hidden-md hidden-lg">Producto 3</h4>
+                  </div>
+                </div>
+              </td>
+              <td class="text-center"><span class="precio">40</span>€</td>
+              <td class="text-center">
+                <span id="c3">0</span>
+              </td>
+              <td class="text-center"><span id="subtotal3">0</span>€</td>
+              <td class="text-center"><span class="glyphicon glyphicon-remove" onclick="clearInputField(3)"></span></td>
+              
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="visible-xs">
+              <td class="text-center">
+                <strong>Total <span id="total1">0</span>€</strong>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="2" class="hidden-xs"></td>
+              <td class="hidden-xs text-center">
+                <strong>Total <span id="total2">0</span>€</strong>
+              </td>
+              <td><a href="#" class="btn btn-block btn-success">Comprar</a></td>
+            </tr>
+          </tfoot>
+        </table>
+    </div>
+  </div>
+</body>
+</html>

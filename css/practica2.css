@@ -1,0 +1,16 @@
+.oculto , .producto1 , .producto2 , .producto3 {
+	display: none;
+}
+#p1,#p2,#p3 {
+	display: none;
+}
+body{
+	background: url("../img/bg.png");
+}
+h3{
+	color:white;
+}
+img{
+	border: 2px solid black;
+    border-radius: 5px;
+}
