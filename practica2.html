@@ -13,7 +13,6 @@
   <link rel="stylesheet" type="text/css" href="css/practica2.css">
 
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/npm.js"></script>
 
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/jquery-ui.min.js"></script>
@@ -186,77 +185,86 @@
           </div>
         </div>
     </div>
+
     <div id="tabs" class="col-md-12 well">
-      <ul>
-        <li><a href="#Imagenes">Imagenes</a></li>
-        <li><a href="#Descripcion">Descripción</a></li>
-        <li><a href="#Precio">Precio</a></li>
+      <ul class=" nav-pills">
+        <li>
+          <a  href="#Imagenes" data-toggle="tab">Imágenes</a>
+        </li>
+        <li>
+          <a href="#Descripcion" data-toggle="tab">Descripción</a>
+        </li>
+        <li>
+          <a href="#Precio" data-toggle="tab">Precio</a>
+        </li>
       </ul>
-      <div class="row oculto">
-        <h4 class="text-center">Producto <span id="np">1</span>
-        </h4>
-      </div>
-      <div id="Imagenes">
-        <div id="ninguno">
-          <p class="ninguno">Seleccione un producto para observar las imágenes del mismo.</p>
+      <div class="tab-content">
+        <div class="row oculto">
+          <h4 class="text-center">Producto <span id="np">1</span>
+          </h4>
         </div>
-        <div class="oculto">
-          <div class="row">
-            <div class="col-md-offset-3 col-md-6">
-              <img class="img-responsive" src="" id="img_principal">
+        <div id="Imagenes">
+          <div class="ninguno tab-pane ">
+            <p class="ninguno">Seleccione un producto para observar las imágenes del mismo.</p>
+          </div>
+          <div class="oculto tab-pane ">
+            <div class="row">
+              <div class="col-md-offset-3 col-md-6">
+                <img class="img-responsive" src="" id="img_principal">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-offset-3 col-md-2 col-sm-4 col-xs-4 well-sm">
+                <img class="img-responsive" src="" id="img1">
+              </div>
+              <div class="col-md-2 col-sm-4 col-xs-4 well-sm">
+                <img class="img-responsive" src="" id="img2">
+              </div>
+              <div class="col-md-2 col-sm-4 col-xs-4 well-sm">
+                <img class="img-responsive" src="" id="img3">
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-offset-3 col-md-2 col-sm-4 col-xs-4 well-sm">
-              <img class="img-responsive" src="" id="img1">
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-4 well-sm">
-              <img class="img-responsive" src="" id="img2">
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-4 well-sm">
-              <img class="img-responsive" src="" id="img3">
-            </div>
-          </div>
         </div>
-      </div>
 
-      <div id="Descripcion">
-        <div id="ninguno">
-          <p class="ninguno">Seleccione un producto para observar la descripción del mismo.</p>
+        <div id="Descripcion">
+          <div class="ninguno tab-pane">
+            <p class="ninguno">Seleccione un producto para observar la descripción del mismo.</p>
+          </div>
+          <div class="oculto tab-pane">
+            <p class="producto1">Primera equipación. Luce el escudo del club y el logo de la marca en el pecho.
+            Emblema de la La Liga estampado en la manga.
+            Escudo de Navarra estampado en la parte trasera a la altura de la nuca.
+            Gracias a su tecnología CLIMACOOL, que expulsa el sudor de la piel, te mantendrás fresco y seco.
+            Tejido 100% Poliéster.</p>
+            <p class="producto2">Confeccionado en tejido transpirable Climalite® con ventilación estratégica.
+            En la parte izquierda del pecho lleva el escudo del equipo y en la derecha el logotipo de Adidas bordados.
+            Tejido Poliéster 100%.</p>
+            <p class="producto3"> Segunda equipación. Luce el escudo del club y el logo de la marca en el pecho.
+            Emblema de la La Liga estampado en la manga.
+            Escudo de Navarra estampado en la parte trasera a la altura de la nuca.
+            Gracias a su tecnología CLIMACOOL, que expulsa el sudor de la piel, te mantendrás fresco y seco.
+            Tejido 100% Poliéster.</p>
+          </div>
         </div>
-        <div class="oculto">
-          <p class="producto1">Primera equipación. Luce el escudo del club y el logo de la marca en el pecho.
-          Emblema de la La Liga estampado en la manga.
-          Escudo de Navarra estampado en la parte trasera a la altura de la nuca.
-          Gracias a su tecnología CLIMACOOL, que expulsa el sudor de la piel, te mantendrás fresco y seco.
-          Tejido 100% Poliéster.</p>
-          <p class="producto2">Confeccionado en tejido transpirable Climalite® con ventilación estratégica.
-          En la parte izquierda del pecho lleva el escudo del equipo y en la derecha el logotipo de Adidas bordados.
-          Tejido Poliéster 100%.</p>
-          <p class="producto3"> Segunda equipación. Luce el escudo del club y el logo de la marca en el pecho.
-          Emblema de la La Liga estampado en la manga.
-          Escudo de Navarra estampado en la parte trasera a la altura de la nuca.
-          Gracias a su tecnología CLIMACOOL, que expulsa el sudor de la piel, te mantendrás fresco y seco.
-          Tejido 100% Poliéster.</p>
-        </div>
-      </div>
 
-      <div id="Precio">
-        <div id="ninguno">
-          <p class="ninguno">Seleccione un producto para añadir unidades.</p>
-        </div>
-        <div class="oculto">
-          <div class="row producto1 col-md-12">
-            <p><span> Cantidad: </span><input step="1" type="number" id="cantidad1" value="0" min="0"></p>
-            <p>Precio: <span>60</span>€</p>
+        <div id="Precio">
+          <div class="ninguno tab-pane">
+            <p class="ninguno">Seleccione un producto para añadir unidades.</p>
           </div>
-          <div class="row producto2 col-md-12">
-            <p><span> Cantidad: </span><input step="1" type="number" id="cantidad2" value="0" min="0"></p>
-            <p>Precio: <span>20</span>€</p>
-          </div>
-          <div class="row producto3 col-md-12">
-            <p><span> Cantidad: </span><input step="1" type="number" id="cantidad3" value="0" min="0"></p>
-            <p>Precio: <span>40</span>€</p>
+          <div class="oculto tab-pane">
+            <div class="row producto1 col-md-12">
+              <p><span> Cantidad: </span><input step="1" type="number" id="cantidad1" value="0" min="0"></p>
+              <p>Precio: <span>60</span>€</p>
+            </div>
+            <div class="row producto2 col-md-12">
+              <p><span> Cantidad: </span><input step="1" type="number" id="cantidad2" value="0" min="0"></p>
+              <p>Precio: <span>20</span>€</p>
+            </div>
+            <div class="row producto3 col-md-12">
+              <p><span> Cantidad: </span><input step="1" type="number" id="cantidad3" value="0" min="0"></p>
+              <p>Precio: <span>40</span>€</p>
+            </div>
           </div>
         </div>
       </div>

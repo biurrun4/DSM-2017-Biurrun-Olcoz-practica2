@@ -10,7 +10,12 @@ body{
 h3{
 	color:white;
 }
+
 img{
 	border: 2px solid black;
     border-radius: 5px;
+}
+
+.nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
 }
